@@ -1,0 +1,16 @@
+diff -crB psm_original/smali/com/playstation/psstore/util/ar.smali psm_patch/smali/com/playstation/psstore/util/ar.smali
+*** psm_original/smali/com/playstation/psstore/util/ar.smali	2025-04-08 07:13:18.999085600 +1200
+--- psm_patch/smali/com/playstation/psstore/util/ar.smali	2025-04-08 07:28:01.120689000 +1200
+***************
+*** 459,464 ****
+--- 459,468 ----
+  .method protected synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+      .locals 1
+  
++     # move /sdcard/psm/download to /sdcard/android/data/com.playstation.psstore ...
++     iget-object v0, p0, Lcom/playstation/psstore/util/ar;->b:Landroid/content/Context;
++     invoke-static {v0}, Lcom/psmreborn/nopsmdrm/noroot/GamePackageMover;->movePackages(Landroid/content/Context;)V
++ 
+      invoke-direct {p0}, Lcom/playstation/psstore/util/ar;->a()Ljava/util/List;
+  
+      move-result-object v0

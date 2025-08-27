@@ -1,0 +1,92 @@
+diff -crB psm_original/smali/com/playstation/psstore/util/dn.smali psm_patch/smali/com/playstation/psstore/util/dn.smali
+*** psm_original/smali/com/playstation/psstore/util/dn.smali	2024-06-04 14:26:38.807889300 +1200
+--- psm_patch/smali/com/playstation/psstore/util/dn.smali	2024-06-04 16:29:20.869425000 +1200
+***************
+*** 220,252 ****
+  .end method
+  
+  .method public static b(Landroid/content/Context;)J
+!     .locals 3
+! 
+!     invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+! 
+!     move-result-object v0
+! 
+!     const-string v1, "last_signin_account_id"
+! 
+!     const/4 v2, 0x0
+! 
+!     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+! 
+!     move-result-object v2
+! 
+!     const-wide/16 v0, 0x0
+! 
+!     if-eqz v2, :cond_0
+! 
+!     invoke-static {p0, v2}, Lqy;->b(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+! 
+!     move-result-object v0
+  
+      invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+  
+      move-result-wide v0
+! 
+!     :cond_0
+      return-wide v0
+  .end method
+  
+--- 220,234 ----
+  .end method
+  
+  .method public static b(Landroid/content/Context;)J
+!     .locals 1
+!     
+!     # Force to decode "0123456789abcdef"
+!     const-string v0, "81985529216486895"
+  
+      invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+  
+      move-result-wide v0
+!     
+      return-wide v0
+  .end method
+  
+***************
+*** 259,265 ****
+  
+      const-string v1, "last_signin_account_region"
+  
+!     const-wide/16 v2, 0x0
+  
+      invoke-interface {v0, v1, v2, v3}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+  
+--- 241,248 ----
+  
+      const-string v1, "last_signin_account_region"
+  
+!     # Change default region to 0x2 (which is a valid region)
+!     const-wide/16 v2, 0x2
+  
+      invoke-interface {v0, v1, v2, v3}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+  
+***************
+*** 283,293 ****
+--- 266,282 ----
+  
+      move-result-object v2
+  
++     # Force country to be read as "en"
++     const-string v2, "US"
++ 
+      const-string v3, "last_signin_account_language"
+  
+      invoke-interface {v1, v3, v0}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+  
+      move-result-object v1
++     
++     # Force language to be read as "en"
++     const-string v1, "en"
+  
+      if-eqz v2, :cond_0
+  

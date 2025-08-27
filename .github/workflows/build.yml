@@ -17,6 +17,7 @@ jobs:
         run: |
           sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
           sudo apt update
+          sudo apt upgrade -y
       - name: Setup Depencies
         run: sudo apt install openjdk-8-jdk diffutils apksigner patch wget bspatch zipalign -y
       - name: Get next version code
@@ -29,12 +30,7 @@ jobs:
           echo "NEXT_VER_CODE=$((TAG + 1))" >> $GITHUB_OUTPUT
       - name: Run Build
         run: |
-          cd input
           bash build_patched_apk.sh
-          cp PSM_NoPsmDrm_NoRoot.apk ../PSM_dddd.apk
-          zipalign -p 4 ../PSM_dddd.apk ../PSM_uuuu.apk
-          apksigner sign --ks-key-alias lob --ks ../sign.keystore --ks-pass pass:369852 --key-pass pass:369852 --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --v4-signing-enabled true ../PSM_uuuu.apk
-          cp ../PSM_uuuu.apk ../PSM.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
@@ -43,7 +39,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./PSM.apk
+          file: ./PSM_NoPsmDrm_NoRoot.apk
           tag: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
           overwrite: true
           body: "NoPsmDrm Apk"

@@ -1,0 +1,15 @@
+diff -crB psm_original/smali/com/playstation/psstore/ui/psmui/PsmApplicationUpdateCheckActivity.smali psm_patch/smali/com/playstation/psstore/ui/psmui/PsmApplicationUpdateCheckActivity.smali
+*** psm_original/smali/com/playstation/psstore/ui/psmui/PsmApplicationUpdateCheckActivity.smali	2025-04-08 07:13:08.412723500 +1200
+--- psm_patch/smali/com/playstation/psstore/ui/psmui/PsmApplicationUpdateCheckActivity.smali	2025-04-08 10:13:44.190638400 +1200
+***************
+*** 445,450 ****
+--- 445,453 ----
+  
+      move-result v1
+  
++     # force is_empty so it doesn't check for updates
++     const/4 v1, 0x1
++ 
+      if-nez v1, :cond_6
+  
+      iget-object v0, p0, Lcom/playstation/psstore/ui/psmui/PsmApplicationUpdateCheckActivity;->c:Ljava/util/List;

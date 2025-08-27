@@ -1,0 +1,83 @@
+diff -crB psm_original/smali/qy.smali psm_patch/smali/qy.smali
+*** psm_original/smali/qy.smali	2024-06-04 14:26:53.515727100 +1200
+--- psm_patch/smali/qy.smali	2024-06-04 15:37:25.347430300 +1200
+***************
+*** 501,507 ****
+      invoke-virtual {v3, v4}, Lrg;->a(Ljava/lang/String;)Z
+  
+      move-result v4
+! 
+      if-eqz v4, :cond_5
+  
+      const-string v4, "AutoSignIn"
+--- 501,510 ----
+      invoke-virtual {v3, v4}, Lrg;->a(Ljava/lang/String;)Z
+  
+      move-result v4
+!     
+!     # Force it to see it as having a saved username;
+!     const/4 v4, 0x1
+!     
+      if-eqz v4, :cond_5
+  
+      const-string v4, "AutoSignIn"
+***************
+*** 509,514 ****
+--- 512,520 ----
+      invoke-virtual {v3, v4}, Lrg;->d(Ljava/lang/String;)Z
+  
+      move-result v4
++     
++     # Force AutoSignIn on.
++     const/4 v4, 0x1
+  
+      invoke-virtual {v1, v4}, Lcom/sony/snei/np/android/account/k;->a(Z)V
+  
+***************
+*** 522,527 ****
+--- 528,536 ----
+  
+      move-result-object v4
+  
++     # Force email .. 
++     const-string v4, "nopsmdrm@transrights.lgbt"
++ 
+      invoke-virtual {v1, v4}, Lcom/sony/snei/np/android/account/k;->d(Ljava/lang/String;)V
+  
+      const-string v4, "Password"
+***************
+*** 534,539 ****
+--- 543,551 ----
+  
+      move-result-object v4
+  
++     # Force password .. 
++     const-string v4, "password"
++ 
+      invoke-virtual {v1, v4}, Lcom/sony/snei/np/android/account/k;->e(Ljava/lang/String;)V
+  
+      const-string v4, "PassSave"
+***************
+*** 542,547 ****
+--- 554,562 ----
+  
+      move-result v4
+  
++     # Force PassSave to be read as set .. 
++     const/4 v4, 0x1
++ 
+      if-eqz v4, :cond_4
+  
+      const-string v0, "PassSave"
+***************
+*** 550,555 ****
+--- 565,573 ----
+  
+      move-result v0
+  
++     # Force PassSave to be true.
++     const/4 v0, 0x1
++ 
+      invoke-virtual {v2, v0}, Lqz;->a(Z)V
+  
+      :cond_3

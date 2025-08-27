@@ -1,0 +1,27 @@
+diff -crB psm_original/smali/com/playstation/psstore/ui/store/ProductLicense.smali psm_patch/smali/com/playstation/psstore/ui/store/ProductLicense.smali
+*** psm_original/smali/com/playstation/psstore/ui/store/ProductLicense.smali	2024-06-04 14:26:35.005521700 +1200
+--- psm_patch/smali/com/playstation/psstore/ui/store/ProductLicense.smali	2024-06-04 16:52:08.663396100 +1200
+***************
+*** 363,368 ****
+--- 363,371 ----
+      invoke-interface {v4, v0, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+  
+      move-result v1
++     
++     # Force psm_license_agree true
++     const/4 v1, 0x1
+  
+      if-eqz v1, :cond_2
+  
+***************
+*** 408,413 ****
+--- 411,419 ----
+  
+      move-result v5
+  
++     # Force psm_license_agree_version_code 1170
++     const/16 v5, 0x0492
++ 
+      if-le v0, v5, :cond_2
+  
+      invoke-static {v3}, Lcom/playstation/psstore/ui/store/ba;->a(Landroid/content/Context;)Lcom/playstation/psstore/ui/store/ba;

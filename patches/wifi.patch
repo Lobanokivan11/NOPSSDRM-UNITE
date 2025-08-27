@@ -1,0 +1,28 @@
+diff -crB psm_original/smali/jd.smali psm_patch/smali/jd.smali
+*** psm_original/smali/jd.smali	2024-06-04 14:26:50.153177500 +1200
+--- psm_patch/smali/jd.smali	2024-06-04 15:23:32.432613500 +1200
+***************
+*** 63,68 ****
+--- 63,70 ----
+      move v0, v1
+  
+      :goto_0
++     # Force return 0x2.
++     const/4 v0, 0x2
+      return v0
+  
+      :cond_0
+diff -crB psm_original/smali/li.smali psm_patch/smali/li.smali
+*** psm_original/smali/li.smali	2024-06-04 14:26:50.909640300 +1200
+--- psm_patch/smali/li.smali	2024-06-04 15:23:40.250031800 +1200
+***************
+*** 615,620 ****
+--- 615,622 ----
+      move v0, v1
+  
+      :goto_0
++     # Force return 0x1
++     const/4 v0, 0x1
+      return v0
+  
+      :cond_0

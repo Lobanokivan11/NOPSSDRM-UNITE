@@ -1,0 +1,16 @@
+diff -crB psm_original/smali/com/playstation/psstore/ui/library/db/c.smali psm_patch/smali/com/playstation/psstore/ui/library/db/c.smali
+*** psm_original/smali/com/playstation/psstore/ui/library/db/c.smali	2024-06-04 14:26:30.060559000 +1200
+--- psm_patch/smali/com/playstation/psstore/ui/library/db/c.smali	2024-06-04 17:00:39.783375000 +1200
+***************
+*** 99,104 ****
+--- 99,108 ----
+  
+      invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+  
++     # add sql trigger to database
++     const-string v0, "CREATE TRIGGER IF NOT EXISTS CONTENT_ID_MEMES AFTER INSERT ON LibraryTable BEGIN UPDATE LibraryTable SET content_id=\"UM0105-\" || title_id || \"_00-0000000000000000\" WHERE title_id = new.title_id; END;"
++     invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
++ 
+      return-void
+  .end method
+  

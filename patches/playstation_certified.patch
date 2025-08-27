@@ -1,0 +1,108 @@
+diff -crB psm_original/smali/com/playstation/psstore/util/bu.smali psm_patch/smali/com/playstation/psstore/util/bu.smali
+*** psm_original/smali/com/playstation/psstore/util/bu.smali	2025-03-03 15:11:13.799321000 +1300
+--- psm_patch/smali/com/playstation/psstore/util/bu.smali	2025-03-03 15:11:36.520187100 +1300
+***************
+*** 455,529 ****
+  
+  .method public static d()Z
+      .locals 1
+! 
+!     sget-boolean v0, Lcom/playstation/psstore/util/bu;->a:Z
+! 
+!     if-nez v0, :cond_0
+! 
+!     sget-object v0, Lcom/playstation/psstore/util/bu;->c:Lcom/playstation/psstore/util/bv;
+! 
+!     if-nez v0, :cond_0
+! 
+!     new-instance v0, Ljava/lang/AssertionError;
+! 
+!     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+! 
+!     throw v0
+! 
+!     :cond_0
+!     sget-object v0, Lcom/playstation/psstore/util/bu;->c:Lcom/playstation/psstore/util/bv;
+! 
+!     iget-boolean v0, v0, Lcom/playstation/psstore/util/bv;->d:Z
+! 
+!     return v0
+  .end method
+  
+  .method public static e()Z
+      .locals 1
+! 
+!     sget-boolean v0, Lcom/playstation/psstore/util/bu;->a:Z
+! 
+!     if-nez v0, :cond_0
+! 
+!     sget-object v0, Lcom/playstation/psstore/util/bu;->c:Lcom/playstation/psstore/util/bv;
+! 
+!     if-nez v0, :cond_0
+! 
+!     new-instance v0, Ljava/lang/AssertionError;
+! 
+!     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+! 
+!     throw v0
+! 
+!     :cond_0
+!     sget-object v0, Lcom/playstation/psstore/util/bu;->c:Lcom/playstation/psstore/util/bv;
+! 
+!     iget-boolean v0, v0, Lcom/playstation/psstore/util/bv;->f:Z
+  
+      return v0
+  .end method
+  
+  .method public static f()Z
+      .locals 1
+! 
+!     sget-boolean v0, Lcom/playstation/psstore/util/bu;->a:Z
+! 
+!     if-nez v0, :cond_0
+! 
+!     sget-object v0, Lcom/playstation/psstore/util/bu;->c:Lcom/playstation/psstore/util/bv;
+! 
+!     if-nez v0, :cond_0
+! 
+!     new-instance v0, Ljava/lang/AssertionError;
+! 
+!     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+! 
+!     throw v0
+! 
+!     :cond_0
+!     sget-object v0, Lcom/playstation/psstore/util/bu;->c:Lcom/playstation/psstore/util/bv;
+! 
+!     iget-boolean v0, v0, Lcom/playstation/psstore/util/bv;->g:Z
+  
+      return v0
+  .end method
+--- 455,481 ----
+  
+  .method public static d()Z
+      .locals 1
+!   
+!   # force no account mannager required.
+!   const/4 v0, 0x0
+!   
+!   return v0
+  .end method
+  
+  .method public static e()Z
+      .locals 1
+! 	
+! 	# force supports psm content,
+! 	const/4 v0, 0x1
+  
+      return v0
+  .end method
+  
+  .method public static f()Z
+      .locals 1
+! 	
+! 	# force supports pss content,
+! 	const/4 v0, 0x1
+  
+      return v0
+  .end method

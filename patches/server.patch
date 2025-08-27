@@ -1,0 +1,390 @@
+diff -crB psm_original/smali/add.smali psm_patch/smali/add.smali
+*** psm_original/smali/add.smali	2025-01-24 21:41:15.552275700 +1300
+--- psm_patch/smali/add.smali	2025-01-24 21:53:32.036133400 +1300
+***************
+*** 177,183 ****
+  
+      move-result-object v0
+  
+!     const-string v1, "https://psm.sec.%s.dl.playstation.net/psm/%s/%s/metadata.xml"
+  
+      const/4 v2, 0x3
+  
+--- 177,183 ----
+  
+      move-result-object v0
+  
+!     const-string v1, "https://psm.sec.%s.cdn.psmreborn.com/psm/%s/%s/metadata.xml"
+  
+      const/4 v2, 0x3
+  
+diff -crB psm_original/smali/com/playstation/psstore/ui/psmstore/as.smali psm_patch/smali/com/playstation/psstore/ui/psmstore/as.smali
+*** psm_original/smali/com/playstation/psstore/ui/psmstore/as.smali	2025-01-24 21:41:41.999267700 +1300
+--- psm_patch/smali/com/playstation/psstore/ui/psmstore/as.smali	2025-01-24 21:53:28.947585000 +1300
+***************
+*** 60,66 ****
+  
+      move-result-object v0
+  
+!     const-string v1, "http://p0.dl.playstation.net/p0/psns/psnschk.htm?a={0}&type=psm"
+  
+      new-array v2, v5, [Ljava/lang/Object;
+  
+--- 60,66 ----
+  
+      move-result-object v0
+  
+!     const-string v1, "http://cdn.psmreborn.com/p0/psns/psnschk.htm?a={0}&type=psm"
+  
+      new-array v2, v5, [Ljava/lang/Object;
+  
+diff -crB psm_original/smali/com/playstation/psstore/util/bz.smali psm_patch/smali/com/playstation/psstore/util/bz.smali
+*** psm_original/smali/com/playstation/psstore/util/bz.smali	2025-01-24 21:41:53.981270900 +1300
+--- psm_patch/smali/com/playstation/psstore/util/bz.smali	2025-01-24 21:53:26.762588200 +1300
+***************
+*** 520,526 ****
+  
+      move-result-object v2
+  
+!     const-string v3, "https://psm.sec.%s.dl.playstation.net/psm/%s/%s/updateinfo.xml"
+  
+      const/4 v4, 0x3
+  
+--- 520,526 ----
+  
+      move-result-object v2
+  
+!     const-string v3, "https://psm.sec.%s.cdn.psmreborn.com/psm/%s/%s/updateinfo.xml"
+  
+      const/4 v4, 0x3
+  
+diff -crB psm_original/smali/com/playstation/psstore/util/db.smali psm_patch/smali/com/playstation/psstore/util/db.smali
+*** psm_original/smali/com/playstation/psstore/util/db.smali	2025-01-24 21:41:54.516276500 +1300
+--- psm_patch/smali/com/playstation/psstore/util/db.smali	2025-01-24 21:53:36.582040900 +1300
+***************
+*** 28,34 ****
+  .method public static b()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://pss.dl.playstation.net/pss/store/update/versionInfo.dat"
+  
+      return-object v0
+  .end method
+--- 28,34 ----
+  .method public static b()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://cdn.psmreborn.com/pss/store/update/versionInfo.dat"
+  
+      return-object v0
+  .end method
+***************
+*** 36,42 ****
+  .method public static c()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://pss.dl.playstation.net/pss/cGxheXN0YXRpb25z/"
+  
+      return-object v0
+  .end method
+--- 36,42 ----
+  .method public static c()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://cdn.psmreborn.com/pss/cGxheXN0YXRpb25z/"
+  
+      return-object v0
+  .end method
+***************
+*** 44,50 ****
+  .method public static d()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://pss.dl.playstation.net/pss/store/manifest/deviceList2.dat"
+  
+      return-object v0
+  .end method
+--- 44,50 ----
+  .method public static d()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://cdn.psmreborn.com/pss/store/manifest/deviceList2.dat"
+  
+      return-object v0
+  .end method
+***************
+*** 52,58 ****
+  .method public static e()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://psm.dl.playstation.net/psm/store/manifest/comingSoonDevList.dat"
+  
+      return-object v0
+  .end method
+--- 52,58 ----
+  .method public static e()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://cdn.psmreborn.com/psm/store/manifest/comingSoonDevList.dat"
+  
+      return-object v0
+  .end method
+***************
+*** 60,66 ****
+  .method public static f()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://psm.dl.playstation.net/psm/store/manifest/comingSoon.dat"
+  
+      return-object v0
+  .end method
+--- 60,66 ----
+  .method public static f()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://cdn.psmreborn.com/psm/store/manifest/comingSoon.dat"
+  
+      return-object v0
+  .end method
+***************
+*** 68,74 ****
+  .method public static g()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://psm.dl.playstation.net/psm/store/manifest/addtionalCertifiedDevList.dat"
+  
+      return-object v0
+  .end method
+--- 68,74 ----
+  .method public static g()Ljava/lang/String;
+      .locals 1
+  
+!     const-string v0, "http://cdn.psmreborn.com/psm/store/manifest/addtionalCertifiedDevList.dat"
+  
+      return-object v0
+  .end method
+diff -crB psm_original/smali/com/playstation/psstore/util/dp.smali psm_patch/smali/com/playstation/psstore/util/dp.smali
+*** psm_original/smali/com/playstation/psstore/util/dp.smali	2025-01-24 21:41:54.733270700 +1300
+--- psm_patch/smali/com/playstation/psstore/util/dp.smali	2025-01-24 21:53:25.065584900 +1300
+***************
+*** 42,48 ****
+  
+      move-result-object v2
+  
+!     const-string v3, "https://psm.sec.%s.dl.playstation.net/psm/%s/%s/version.xml"
+  
+      const/4 v4, 0x3
+  
+--- 42,48 ----
+  
+      move-result-object v2
+  
+!     const-string v3, "https://psm.sec.%s.cdn.psmreborn.com/psm/%s/%s/version.xml"
+  
+      const/4 v4, 0x3
+  
+diff -crB psm_original/smali/com/sony/snei/np/android/game/util/a.smali psm_patch/smali/com/sony/snei/np/android/game/util/a.smali
+*** psm_original/smali/com/sony/snei/np/android/game/util/a.smali	2025-01-24 21:42:00.679277500 +1300
+--- psm_patch/smali/com/sony/snei/np/android/game/util/a.smali	2025-01-24 21:53:13.938473800 +1300
+***************
+*** 10,16 ****
+  
+      move-result-object v0
+  
+!     const-string v1, "http://psm-image.%s.dl.playstation.net/psm/%s/%s"
+  
+      const/4 v2, 0x3
+  
+--- 10,16 ----
+  
+      move-result-object v0
+  
+!     const-string v1, "http://psm-image.%s.cdn.psmreborn.com/psm/%s/%s"
+  
+      const/4 v2, 0x3
+  
+***************
+*** 247,253 ****
+  
+      move-result-object v1
+  
+!     const-string v2, "http://psm-pkg.%s.dl.playstation.net/psm/%s/%s/%s.pkg"
+  
+      const/4 v3, 0x4
+  
+--- 247,253 ----
+  
+      move-result-object v1
+  
+!     const-string v2, "http://psm-pkg.%s.cdn.psmreborn.com/psm/%s/%s/%s.pkg"
+  
+      const/4 v3, 0x4
+  
+diff -crB psm_original/smali/va.smali psm_patch/smali/va.smali
+*** psm_original/smali/va.smali	2025-01-24 21:42:16.631275400 +1300
+--- psm_patch/smali/va.smali	2025-01-24 21:53:15.930496800 +1300
+***************
+*** 412,418 ****
+      packed-switch p0, :pswitch_data_0
+  
+      :cond_1
+!     const-string v0, "https://nsx.sec.{0}.dl.playstation.net/nsx/sec/Xz78TMQ1Uf31VCYr/{1}/{2}/{3}.xml"
+  
+      :goto_0
+      const-string v1, "-"
+--- 412,418 ----
+      packed-switch p0, :pswitch_data_0
+  
+      :cond_1
+!     const-string v0, "https://nsx.sec.{0}.cdn.psmreborn.com/nsx/sec/Xz78TMQ1Uf31VCYr/{1}/{2}/{3}.xml"
+  
+      :goto_0
+      const-string v1, "-"
+***************
+*** 453,459 ****
+      return-object v0
+  
+      :pswitch_0
+!     const-string v0, "https://nsx.sec.{0}.dl.playstation.net/nsx/sec/Xz78TMQ1Uf31VCYr/{1}/{2}/{3}-Q.xml"
+  
+      goto :goto_0
+  
+--- 453,459 ----
+      return-object v0
+  
+      :pswitch_0
+!     const-string v0, "https://nsx.sec.{0}.cdn.psmreborn.com/nsx/sec/Xz78TMQ1Uf31VCYr/{1}/{2}/{3}-Q.xml"
+  
+      goto :goto_0
+  
+diff -crB psm_original/smali/vc.smali psm_patch/smali/vc.smali
+*** psm_original/smali/vc.smali	2025-01-24 21:42:16.670273300 +1300
+--- psm_patch/smali/vc.smali	2025-01-24 21:53:18.643470800 +1300
+***************
+*** 58,64 ****
+  .method private static a(Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "http://nsx-e.{0}.dl.playstation.net/nsx/{1}"
+  
+      const/4 v1, 0x2
+  
+--- 58,64 ----
+  .method private static a(Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "http://nsx-e.{0}.cdn.psmreborn.com/nsx/{1}"
+  
+      const/4 v1, 0x2
+  
+***************
+*** 86,92 ****
+  .method private static a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "https://{1}-e.sec.{0}.dl.playstation.net/nsx-e/sec/{2}"
+  
+      const/4 v1, 0x3
+  
+--- 86,92 ----
+  .method private static a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "https://{1}-e.sec.{0}.cdn.psmreborn.com/nsx-e/sec/{2}"
+  
+      const/4 v1, 0x3
+  
+***************
+*** 391,397 ****
+  .method private static b(Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "http://{1}-e.{0}.dl.playstation.net/nsx-e/{1}"
+  
+      const/4 v1, 0x2
+  
+--- 391,397 ----
+  .method private static b(Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "http://{1}-e.{0}.cdn.psmreborn.com/nsx-e/{1}"
+  
+      const/4 v1, 0x2
+  
+***************
+*** 577,583 ****
+  .method private static c(Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "https://nsx-e.sec.{0}.dl.playstation.net/nsx/sec/{1}"
+  
+      const/4 v1, 0x2
+  
+--- 577,583 ----
+  .method private static c(Ljava/lang/String;)Ljava/lang/String;
+      .locals 4
+  
+!     const-string v0, "https://nsx-e.sec.{0}.cdn.psmreborn.com/nsx/sec/{1}"
+  
+      const/4 v1, 0x2
+  
+diff -crB psm_original/smali/xt.smali psm_patch/smali/xt.smali
+*** psm_original/smali/xt.smali	2025-01-24 21:42:18.004266000 +1300
+--- psm_patch/smali/xt.smali	2025-01-24 21:53:20.627470100 +1300
+***************
+*** 52,58 ****
+  
+      move-result-object v0
+  
+!     const-string v4, "https://psm.sec.%s.dl.playstation.net/psm/common_description/%s.xml"
+  
+      const/4 v5, 0x2
+  
+--- 52,58 ----
+  
+      move-result-object v0
+  
+!     const-string v4, "https://psm.sec.%s.cdn.psmreborn.com/psm/common_description/%s.xml"
+  
+      const/4 v5, 0x2
+  
+diff -crB psm_original/smali/xz.smali psm_patch/smali/xz.smali
+*** psm_original/smali/xz.smali	2025-01-24 21:42:18.129271700 +1300
+--- psm_patch/smali/xz.smali	2025-01-24 21:53:12.676475700 +1300
+***************
+*** 268,274 ****
+  
+      move-result-object v4
+  
+!     const-string v5, "http://psm-image.%s.dl.playstation.net/psm/%s/%s/%s"
+  
+      const/4 v6, 0x4
+  
+--- 268,274 ----
+  
+      move-result-object v4
+  
+!     const-string v5, "http://psm-image.%s.cdn.psmreborn.com/psm/%s/%s/%s"
+  
+      const/4 v6, 0x4
+  
+diff -crB psm_original/smali/yg.smali psm_patch/smali/yg.smali
+*** psm_original/smali/yg.smali	2025-01-24 21:42:18.278261100 +1300
+--- psm_patch/smali/yg.smali	2025-01-24 21:52:26.878901900 +1300
+***************
+*** 57,63 ****
+      throw v0
+  
+      :cond_0
+!     const-string v1, "http://{0}.dl.playstation.net/cdn/{0}/{1}/g"
+  
+      const/4 v2, 0x2
+  
+--- 57,63 ----
+      throw v0
+  
+      :cond_0
+!     const-string v1, "http://{0}.cdn.psmreborn.com/cdn/{0}/{1}/g"
+  
+      const/4 v2, 0x2
+  
