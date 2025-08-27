@@ -1,14 +1,19 @@
-*** "psm_original\\AndroidManifest.xml"	1900-01-00 00:00:00 +0000
---- "psm_patch\\AndroidManifest.xml"	1900-01-00 00:00:00 +0000
+diff -crB psm_original/AndroidManifest.xml psm_patch/AndroidManifest.xml
+*** psm_original/AndroidManifest.xml    2025-08-27 19:37:41.573307200 +0300
+--- psm_patch/AndroidManifest.xml       2025-08-27 19:40:07.862159200 +0300
 ***************
-*** 31,41 ****
---- 31,43 ----
+*** 27,32 ****
+--- 27,33 ----
+      <uses-permission android:name="android.permission.VIBRATE"/>
+      <uses-permission android:name="android.permission.WAKE_LOCK"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
++     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE" />
+      <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
       <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
       <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
-      <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
-+     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE" />
-      <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
-      <uses-permission android:name="com.playstation.psstore.permission"/>
+***************
+*** 36,41 ****
+--- 37,43 ----
       <permission android:name="com.playstation.psstore.permission" android:protectionLevel="signature"/>
       <application android:hardwareAccelerated="true" android:icon="@drawable/icon_app" android:label="@string/msg_psm" android:name="GameStoreApplication" android:theme="@style/PSS.Theme">
           <meta-data android:name="com.sony.dualscreen" android:value="true"/>
