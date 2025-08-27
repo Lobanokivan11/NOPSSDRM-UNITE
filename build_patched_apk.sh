@@ -27,9 +27,8 @@ echo "Rebuilding APK ..."
 java -jar apktool.jar b PSM -o PSM_patched.apk
 
 echo "Signing APK ..."
-jarsigner -storepass "password" -keypass "password" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore pssuite.keystore PSM_patched.apk pssuite
 zipalign -p 4 PSM_patched.apk PSM_patched_align.apk
-apksigner sign --ks-key-alias lob --ks ../sign.keystore --ks-pass pass:369852 --key-pass pass:369852 --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --v4-signing-enabled true PSM_patched_align.apk
+apksigner sign --ks-key-alias lob --ks sign.keystore --ks-pass pass:369852 --key-pass pass:369852 --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --v4-signing-enabled true PSM_patched_align.apk
 
 
 rm PSM_patched.apk

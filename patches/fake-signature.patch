@@ -1,20 +1,12 @@
-diff -crB psm_original/AndroidManifest.xml psm_patch/AndroidManifest.xml
-*** psm_original/AndroidManifest.xml    2025-08-27 19:37:41.573307200 +0300
---- psm_patch/AndroidManifest.xml       2025-08-27 19:40:07.862159200 +0300
+*** psm_original/AndroidManifest.xml	2025-08-27 19:37:41.573307200 +0300
+--- psm_patch/AndroidManifest.xml	2025-08-27 19:47:38.961344600 +0300
 ***************
-*** 27,32 ****
---- 27,33 ----
-      <uses-permission android:name="android.permission.VIBRATE"/>
-      <uses-permission android:name="android.permission.WAKE_LOCK"/>
-      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-+     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE" />
-      <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-      <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
-      <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
-***************
-*** 36,41 ****
---- 37,43 ----
+*** 34,41 ****
+--- 34,43 ----
+      <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+      <uses-permission android:name="com.playstation.psstore.permission"/>
       <permission android:name="com.playstation.psstore.permission" android:protectionLevel="signature"/>
++     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE" />
       <application android:hardwareAccelerated="true" android:icon="@drawable/icon_app" android:label="@string/msg_psm" android:name="GameStoreApplication" android:theme="@style/PSS.Theme">
           <meta-data android:name="com.sony.dualscreen" android:value="true"/>
 +         <meta-data android:name="fake-signature" android:value="3082038a30820272a00302010202044dc7306a300d06092a864886f70d0101050500308186310b3009060355040613024a50310e300c06035504081305546f6b796f31123010060355040713094d696e61746f2d6b7531293027060355040a1320536f6e7920436f6d707574657220456e7465727461696e6d656e7420496e632e310c300a060355040b1303505353311a301806035504031311506c617953746174696f6e205375697465301e170d3131303530393030303831305a170d3338303932343030303831305a308186310b3009060355040613024a50310e300c06035504081305546f6b796f31123010060355040713094d696e61746f2d6b7531293027060355040a1320536f6e7920436f6d707574657220456e7465727461696e6d656e7420496e632e310c300a060355040b1303505353311a301806035504031311506c617953746174696f6e20537569746530820122300d06092a864886f70d01010105000382010f003082010a028201010083d44a66360e487e0c6a237e619b07267263c0b9ed966e1ab208c5f6cba92957434dbfb26cbd40c9f8593d6b8f10323bfc484280786e8fc16dde7504016efd93b5d75b8c134c9ff8b413617db551adc6360604e03ae7fd9b3bd579075b59fd663bced8b3f448da872d3de3177feecf96a84eef571b8697afeb62460fa9c8956b451842e25263750bd3325f35279d061d4ffae786e0fa19af8473e77620b2e76d8993f80aad4bd6828d32c73214cb5e9fadf89cf107aa447cd7de9201ecb041a381ce5235ffd8b5f7429a03e4c944823a4e4a499ee9d1b066603dcf0ff9d9803e5447f16fd977434e70408cfda47ff7e77d5abba43b2af324132120acf458224f0203010001300d06092a864886f70d010105050003820101004aee692b65a2e17256f03725583f710478038106984fbca087a5b0313c5227649939dade4b7a7d242b99c9953a3c0acc57e7eb8acc93c6516c243eafd034cf9ca93f06265369ac329992c1337f310f20f339e1798d9b7596b335134c1615bb7917fd3beac2f8c855f05347c1e3c92e107790a4141d02463d820f0a7249b010be590054096b50a561cbd3bd7868371e2a8cbb0e25f9d778dce6e7620a529fe14a7fcba6c6599852ce3e1bb6e343f8865637fdd50d2db76b8c09055def89aa0b36ff49130825481d27414e0cbafabcc26c9f2ad61941c6e7896a609c7f754d1e552d50dc12424bef1e69ee27c1ec972efc8e57348eccd9d3170d669af05bae20c9" />
