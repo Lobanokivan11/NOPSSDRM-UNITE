@@ -11,8 +11,6 @@ jobs:
     permissions: write-all
     steps:
       - uses: actions/checkout@v4
-      - name: Run clone Setup
-        run: git clone https://silica.codes/Li/NoPssDrm.git -b no-root input
       - name: Prepare environment
         run: |
           sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
