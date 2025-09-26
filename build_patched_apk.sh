@@ -4,6 +4,10 @@ if [ ! -f "PSM.apk" ]; then
 	wget http://psmreborn.com/psm-android/Psm1.7.0.apk -O PSM.apk
 fi
 
+if [ -d "PSM" ]; then
+	rm -rf ./PSM
+fi
+
 echo "Unpacking PSM.apk"
 java -jar apktool.jar d PSM.apk -o PSM
 
